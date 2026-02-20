@@ -41,7 +41,7 @@ This project demonstrates product design thinking, structured data modeling, and
 
 ## Live Demo
 
-(Add your deployed URL here)
+https://goal-forge-tracks.lovable.app/auth
 
 ## Author
 
