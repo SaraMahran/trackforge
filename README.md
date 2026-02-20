@@ -1,73 +1,50 @@
-# Welcome to your Lovable project
+# TrackForge
 
-## Project info
+TrackForge is a minimal accountability and performance tracking web application built using Lovable.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+The application helps users maintain consistency through daily check-ins, weekly goals, points calculation, and independent streak tracking.
 
-## How can I edit this code?
+## Overview
 
-There are several ways of editing your application.
+TrackForge provides a structured system for monitoring user activity and performance using a spec-driven data model. The application prioritizes predictable logic, data integrity, and a clean user experience.
 
-**Use Lovable**
+## Features
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+* Email authentication
+* Daily check-in tracking
+* Weekly goal management (minimum and target thresholds)
+* Points calculation based on completed check-ins
+* Daily streak tracking
+* Weekly streak tracking based on goal thresholds
+* Admin dashboard with user leaderboard
+* Role-based access control
+* Cloud-hosted backend and database
 
-Changes made via Lovable will be committed automatically to this repo.
+## Data Model
 
-**Use your preferred IDE**
+* profiles — user information
+* user_roles — role-based permissions
+* user_goals — weekly minimum and target thresholds
+* daily_checkins — user activity records
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+Points and streaks are derived directly from database records to ensure data consistency.
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## Tech Stack
 
-Follow these steps:
+* Lovable (AI-assisted development platform)
+* Built-in cloud backend
+* Authentication and database services
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+## Purpose
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+This project demonstrates product design thinking, structured data modeling, and AI-assisted application development.
 
-# Step 3: Install the necessary dependencies.
-npm i
+## Live Demo
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+(Add your deployed URL here)
 
-**Edit a file directly in GitHub**
+## Author
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+Sara Ali Mahran
+Software Engineer
+2026
