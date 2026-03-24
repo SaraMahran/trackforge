@@ -186,7 +186,7 @@ export default function Dashboard() {
           <div className="grid grid-cols-3 gap-3">
             <StatCard
               label="Points"
-              value={points}
+              value={totalPoints}
               sub="1 pt / day"
               colorClass="text-points"
             />
