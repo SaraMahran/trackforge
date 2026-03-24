@@ -25,11 +25,7 @@ export default function AdminDashboard() {
   const [rows, setRows] = useState<UserRow[]>([]);
   const [fetching, setFetching] = useState(true);
 
-  useEffect(() => {
-    if (!loading && !isAdmin) {
-      navigate("/");
-    }
-  }, [loading, isAdmin, navigate]);
+  // Admin access is enforced by AdminRoute in App.tsx — no client-side redirect needed
 
   useEffect(() => {
     if (!isAdmin) return;
