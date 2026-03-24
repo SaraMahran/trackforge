@@ -119,7 +119,7 @@ export default function Dashboard() {
     });
 
     if (error) {
-      setGoalsError(error.message);
+      setGoalsError("Could not save goals. Please check your input.");
     } else {
       setGoals(draftGoals);
       setEditingGoals(false);
