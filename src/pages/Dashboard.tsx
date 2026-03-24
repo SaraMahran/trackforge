@@ -47,6 +47,14 @@ export default function Dashboard() {
     setCheckins(mapped);
     setTodayChecked(mapped.some((c) => c.date === TODAY && c.completed));
 
+    // Derive total points from DB count (avoids 1000-row limit)
+    const { count } = await supabase
+      .from("daily_checkins")
+      .select("*", { count: "exact", head: true })
+      .eq("user_id", user.id)
+      .eq("completed", true);
+    setTotalPoints(count ?? 0);
+
     // Load goals
     const { data: goalData } = await supabase
       .from("user_goals")
