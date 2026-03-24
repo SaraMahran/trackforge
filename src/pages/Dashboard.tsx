@@ -3,7 +3,6 @@ import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
 import StatCard from "@/components/StatCard";
 import {
-  calcPoints,
   calcDailyStreak,
   calcWeeklyStreak,
   currentWeekCompletedDays,
