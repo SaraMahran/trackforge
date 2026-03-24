@@ -35,7 +35,7 @@ export default function Auth() {
         navigate("/");
       }
     } catch (err: unknown) {
-      setError(err instanceof Error ? err.message : "An error occurred");
+      setError("Invalid email or password. Please try again.");
     } finally {
       setLoading(false);
     }
