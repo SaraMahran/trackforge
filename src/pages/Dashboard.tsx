@@ -20,6 +20,7 @@ const TODAY = new Date().toISOString().split("T")[0];
 export default function Dashboard() {
   const { user, isAdmin, signOut } = useAuth();
   const [checkins, setCheckins] = useState<Checkin[]>([]);
+  const [totalPoints, setTotalPoints] = useState(0);
   const [goals, setGoals] = useState<Goals>({ minimum_days: 3, target_days: 5 });
   const [todayChecked, setTodayChecked] = useState(false);
   const [loadingCheckin, setLoadingCheckin] = useState(false);
