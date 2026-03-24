@@ -3,7 +3,6 @@ import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
 import StatCard from "@/components/StatCard";
 import {
-  calcPoints,
   calcDailyStreak,
   calcWeeklyStreak,
   currentWeekCompletedDays,
@@ -20,6 +19,7 @@ const TODAY = new Date().toISOString().split("T")[0];
 export default function Dashboard() {
   const { user, isAdmin, signOut } = useAuth();
   const [checkins, setCheckins] = useState<Checkin[]>([]);
+  const [totalPoints, setTotalPoints] = useState(0);
   const [goals, setGoals] = useState<Goals>({ minimum_days: 3, target_days: 5 });
   const [todayChecked, setTodayChecked] = useState(false);
   const [loadingCheckin, setLoadingCheckin] = useState(false);
@@ -46,6 +46,14 @@ export default function Dashboard() {
     const mapped = (checkinData ?? []) as Checkin[];
     setCheckins(mapped);
     setTodayChecked(mapped.some((c) => c.date === TODAY && c.completed));
+
+    // Derive total points from DB count (avoids 1000-row limit)
+    const { count } = await supabase
+      .from("daily_checkins")
+      .select("*", { count: "exact", head: true })
+      .eq("user_id", user.id)
+      .eq("completed", true);
+    setTotalPoints(count ?? 0);
 
     // Load goals
     const { data: goalData } = await supabase
@@ -119,7 +127,6 @@ export default function Dashboard() {
     setSavingGoals(false);
   }
 
-  const points = calcPoints(checkins);
   const dailyStreak = calcDailyStreak(checkins);
   const weeklyStreak = calcWeeklyStreak(checkins, goals.minimum_days);
   const weekDays = currentWeekCompletedDays(checkins);
@@ -179,7 +186,7 @@ export default function Dashboard() {
           <div className="grid grid-cols-3 gap-3">
             <StatCard
               label="Points"
-              value={points}
+              value={totalPoints}
               sub="1 pt / day"
               colorClass="text-points"
             />
