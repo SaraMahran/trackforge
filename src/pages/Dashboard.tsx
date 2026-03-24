@@ -127,7 +127,6 @@ export default function Dashboard() {
     setSavingGoals(false);
   }
 
-  const points = calcPoints(checkins);
   const dailyStreak = calcDailyStreak(checkins);
   const weeklyStreak = calcWeeklyStreak(checkins, goals.minimum_days);
   const weekDays = currentWeekCompletedDays(checkins);
